@@ -65,9 +65,9 @@
         myImage = "";
 
         //myHour =  5;
-        //myHour =  8; // morniong
+        myHour =  8; // morniong
         //myHour = 12;
-        myHour = 15; // afternoon
+        //myHour = 15; // afternoon
         //myHour = 18;
         //myHour = 20; // evening
         //myHour = 23;
@@ -76,7 +76,8 @@
         if (myHour >= 5 && myHour < 12) {
             mySentence = "It's morning!";
             myColor = "blue";
-            myImage = "/images/morning.jpg";
+            //myImage = "/images/morning.jpg";
+            myImage = "images/morning.jpg";
 
         } else if (myHour >= 12 && myHour < 18) {
             mySentence = "It's afternoon!";
@@ -93,21 +94,16 @@
             myColor = "black";
             myImage = "/images/night.jpg";
         }
-
-
-
         document.getElementById("time-text").innerHTML = mySentence;
         // document.body.style.backgroundColor = myColor;
         document.querySelector('html').style.backgroundColor = myColor;
         document.getElementById("time-pic").src= myImage;
+
         // Fixes HTML/CSS Checker links
-
         document.addEventListener("DOMContentLoaded", function() {
-
             var currentUrl = window.location.href;
             document.getElementById("html-validate").href = "https://validator.w3.org/nu/?doc=" + encodeURIComponent(currentUrl);
             document.getElementById("css-validate").href = "https://jigsaw.w3.org/css-validator/validator?uri=" + encodeURIComponent(currentUrl);
-
         });
 
     </script>
