@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Time of Day by Takeo Shimazu</title>
+
+    
+
+    <style>
+
+        /* We target the HTML element directly for our background color swap */
+
+        html {
+
+            background-color: #f4f4f9; 
+
+            transition: background-color 0.5s ease; /* Makes the color change smooth */
+
+        }
+
+
+
+        body {
+
+            font-family: sans-serif;
+
+            text-align: center;
+
+            margin-top: 50px;
+
+            color: #333;
+
+        }
+
+
+
+        /* Our main container for the content */
+
+        .container {
+
+            max-width: 600px;
+
+            margin: auto;
+
+            padding: 20px;
+
+            background: white;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+
+        }
+
+
+
+        /* Styling our main image */
+
+        #time-pic {
+
+          max-width: 300px; /* Keeps our variable-sized images consistent */
+
+          height: auto;     /* Prevents stretching/squishing */
+
+          border-radius: 8px;
+
+          margin-top: 20px;
+
+          
+
+          /* Adds a "Snazzy" Shadow: horizontal, vertical, blur, spread, and color */
+
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+
+        <h1 id="main-greeting">Time of Day by Takeo Shimazu</h1>
+
+        
+
+        <h2 id="time-text">What time is it?</h2>
+
+
+
+        <p>This page will change based on the hour of the day.</p>
+
+        <p>Add your explanation of what the page does, and how it works here.</p>
+
+
+
+        <img id="time-pic" src="https://dummyimage.com/300x400" alt="Time of Day Image">
+
+    </div>
+
+
+
+    <script>
+
+        // We will use this section to write our if/else logic
+
+        // Example: document.querySelector('#time-text').innerHTML = "Good Morning!";
+
+        
+
+        /* Below, we would target the 'html' element to change 
+
+           the background color using document.querySelector('html') 
+
+        */
+
+        myDate = new Date();
+        myHour = myDate.getHours();
+        mySentence = "";
+        myColor = "";
+        myImage = "";
+
+        //myHour =  5;
+        //myHour =  8; // morniong
+        //myHour = 12;
+        myHour = 15; // afternoon
+        //myHour = 18;
+        //myHour = 20; // evening
+        //myHour = 23;
+        //myHour = 2;  // night
+
+        if (myHour >= 5 && myHour < 12) {
+            mySentence = "It's morning!";
+            myColor = "blue";
+            myImage = "/home/tako/Documents/seattle_colleges/5_2026_Spring/IT102/images/morning.jpg";
+
+        } else if (myHour >= 12 && myHour < 18) {
+            mySentence = "It's afternoon!";
+            myColor = "purple";
+            myImage = "/home/tako/Documents/seattle_colleges/5_2026_Spring/IT102/images/afternoon.jpg";
+
+        } else if (myHour >= 18 && myHour < 23) {
+            mySentence = "It's evening!";
+            myColor = "orange";
+            myImage = "/home/tako/Documents/seattle_colleges/5_2026_Spring/IT102/images/evening.jpg";
+
+        } else {
+            mySentence = "It's night!";
+            myColor = "black";
+            myImage = "/home/tako/Documents/seattle_colleges/5_2026_Spring/IT102/images/night.jpg";
+        }
+
+
+
+        document.getElementById("time-text").innerHTML = mySentence;
+        // document.body.style.backgroundColor = myColor;
+        document.querySelector('html').style.backgroundColor = myColor;
+        document.getElementById("time-pic").src= myImage;
+        // Fixes HTML/CSS Checker links
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            var currentUrl = window.location.href;
+            document.getElementById("html-validate").href = "https://validator.w3.org/nu/?doc=" + encodeURIComponent(currentUrl);
+            document.getElementById("css-validate").href = "https://jigsaw.w3.org/css-validator/validator?uri=" + encodeURIComponent(currentUrl);
+
+        });
+
+    </script>
+
+
+
+    <footer style="margin-top: 30px;">
+
+        <small>
+
+            <a id="html-validate" href="" target="_blank">Check HTML</a> | 
+
+            <a id="css-validate" href="" target="_blank">Check CSS</a>
+
+        </small>
+
+    </footer>
+
+
+
+</body>
+
+</html>
+
+
